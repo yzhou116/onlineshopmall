@@ -15,6 +15,8 @@ CREATE TABLE `cart` (
   CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
   CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ;
+
+
 CREATE TABLE `order` (
   `id` int NOT NULL AUTO_INCREMENT ,
   `user_id` int DEFAULT NULL ,
@@ -26,6 +28,8 @@ CREATE TABLE `order` (
   `update_time` datetime NOT NULL ,
   PRIMARY KEY (`id`)
 ) ;
+
+
 CREATE TABLE `order_detail` (
   `id` int NOT NULL AUTO_INCREMENT,
   `order_id` int NOT NULL ,
@@ -35,6 +39,8 @@ CREATE TABLE `order_detail` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `PK__EASYBUY___66E1BD8E2F10007B` (`id`)
 ) ;
+
+
 CREATE TABLE `product` (
   `id` int NOT NULL AUTO_INCREMENT ,
   `name` varchar(200) NOT NULL,
@@ -57,6 +63,8 @@ CREATE TABLE `product_category` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `PK__EASYBUY___9EC2A4E236B12243` (`id`)
 );
+
+
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `login_name` varchar(255) NOT NULL,
@@ -72,6 +80,8 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `PK__EASYBUY___C96109CC3A81B327` (`login_name`)
 );
+
+
 CREATE TABLE `user_address` (
   `id` int NOT NULL AUTO_INCREMENT ,
   `user_id` int DEFAULT NULL,
