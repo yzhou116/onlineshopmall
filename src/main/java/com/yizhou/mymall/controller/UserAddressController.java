@@ -31,9 +31,11 @@ public class UserAddressController {
 
     @GetMapping("/list")
     public ModelAndView UserAddress(HttpSession httpSession){
-        User user = (User) httpSession.getAttribute("user");
-        List<UserAddress> list = userAddressService.FindAllUserAddress(user.getId());
         ModelAndView modelAndView = new ModelAndView();
+        User user = (User) httpSession.getAttribute("user");
+
+        List<UserAddress> list = userAddressService.FindAllUserAddress(user.getId());
+
         modelAndView.setViewName("userAddressList");
         modelAndView.addObject("addressList",list);
 
