@@ -18,4 +18,5 @@ public interface UserAddressService  {
     List<UserAddress> FindAllUserAddress(Integer id);
 
 
+    boolean deleteUserAddressById(Integer id);
 }

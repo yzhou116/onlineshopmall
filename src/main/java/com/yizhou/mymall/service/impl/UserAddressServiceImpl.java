@@ -67,7 +67,29 @@ public class UserAddressServiceImpl implements UserAddressService {
         return list;
     }
 
+    @Override
+    public boolean deleteUserAddressById(Integer id)  {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection= dataSource.getConnection();
+            String sql = "delete from user_address where id = + " + id;
+          preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            try {
+                DataBaseResource.releaseAll(connection,preparedStatement,null);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
 
+
+        return false;
+    }
 
 
 }

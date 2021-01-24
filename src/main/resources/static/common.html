@@ -89,7 +89,7 @@
         </span>
             <span class="fr">
             <span class="fl" th:if="${session.user == null}">Hello !<a href="/login.html" style="color:#ff4e00;">Login</a>&nbsp;<a href="/register" style="color:#ff4e00;">Register</a>&nbsp;&nbsp;</span>
-            <span class="fl" th:if="${session.user != null}"><a href="/user/userInfo" >Welcome Back，<span th:text="${session.user.userName}"></span></a>&nbsp;|&nbsp;<a href="/orders/list">My Orders</a>&nbsp;</span>
+            <span class="fl" th:if="${session.user != null}"><a href="/user/userInfo" >Welcome Back，<span th:text="${session.user.userName}"></span></a>&nbsp;|&nbsp;<a href="/orderDetail/list">My Orders</a>&nbsp;</span>
             <span class="fl" th:if="${session.user != null}">|&nbsp;<a href="/user/logout">Logout</a></span>
         </span>
         </div>
@@ -127,7 +127,7 @@
         </div>
         <div class="i_car">
             <a href="/cart/findAllCart">
-                <!--这边的cartlist.size要注释掉，要不开始页面会启动不了-->
+
                 <div class="car_t">
                     Cart [
                    <span th:text="${cartList.size()}"></span>

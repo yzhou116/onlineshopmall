@@ -1,7 +1,6 @@
 package com.yizhou.mymall.service.impl;
 
 import com.yizhou.mymall.entity.*;
-import com.yizhou.mymall.mapper.OrderDetailMapper;
 import com.yizhou.mymall.service.CartService;
 import com.yizhou.mymall.service.OrderDetailService;
 
@@ -9,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +31,12 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
 
     Connection connection = null;
+    Connection connection1 = null;
 
     PreparedStatement statement = null;
+
+    Statement statement1 = null;
+    Statement statement2 = null;
 
     @Override
     public boolean SaveUserOrder(User user,Integer id) {
@@ -87,4 +88,89 @@ public class OrderDetailServiceImpl implements OrderDetailService {
         }
         return false;
     }
+
+    @Override
+    public List<Order> listUserOrders(Integer id) {
+        List<Order> list = new ArrayList<>();
+        ResultSet resultSet = null;
+       try{
+           connection = dataSource.getConnection();
+           statement1 = connection.createStatement();
+           String sql = "select id, login_name, user_address, cost,serialnumber from `order` where user_id = "+id;
+           resultSet = statement1.executeQuery(sql);
+           while (resultSet.next()) {
+               Order order = new Order();
+               order.setId(resultSet.getInt(1));
+               order.setLoginName(resultSet.getString(2));
+               order.setUserAddress(resultSet.getString(3));
+               order.setCost(resultSet.getFloat(4));
+               order.setSerialnumber(resultSet.getString(5));
+               list.add(order);
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }finally {
+           try {
+               DataBaseResource.releaseAll(connection, statement, resultSet);
+           } catch (SQLException throwables) {
+               throwables.printStackTrace();
+           }
+       }
+        return list;
+    }
+
+    @Override
+    public List<OrderDetailVO> getOrderDetailVoByOrderiD(Integer id) {
+        List<OrderDetailVO> list = new ArrayList<>();
+        ResultSet resultSet = null;
+        try{
+            connection = dataSource.getConnection();
+            statement1 = connection.createStatement();
+            String sql = "select product_id, quantity, cost from order_detail where order_id = " + id;
+            resultSet = statement1.executeQuery(sql);
+            while (resultSet.next()) {
+                OrderDetailVO orderDetailVO = new OrderDetailVO();
+                orderDetailVO.setProductId(resultSet.getInt(1));
+                orderDetailVO.setQuantity(resultSet.getInt(2));
+                orderDetailVO.setCost(resultSet.getInt(3));
+                addfileNameAndName(orderDetailVO);
+                list.add(orderDetailVO);
+            }
+        }catch (Exception e){
+
+        }finally {
+            try {
+                DataBaseResource.releaseAll(connection,statement1,resultSet);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    private void addfileNameAndName(OrderDetailVO orderDetailVO) {
+        ResultSet resultSet = null;
+        try {
+            connection1 = dataSource.getConnection();
+            statement2 = connection1.createStatement();
+            String sql = "select `name`,file_name,price from product where id = " + orderDetailVO.getProductId();
+            resultSet = statement2.executeQuery(sql);
+            while (resultSet.next()) {
+                orderDetailVO.setName(resultSet.getString(1));
+                orderDetailVO.setFileName(resultSet.getString(2));
+                orderDetailVO.setPrice(resultSet.getInt(3));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }finally {
+            try {
+                DataBaseResource.releaseAll(connection1,statement2,resultSet);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+    }
+
 }

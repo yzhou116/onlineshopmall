@@ -4,6 +4,9 @@ package com.yizhou.mymall.entity;
 import java.time.LocalDateTime;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -66,5 +69,13 @@ public class Order implements Serializable {
 
       private LocalDateTime updateTime;
 
+      private List<OrderDetailVO> list = new ArrayList<>();
 
+  public List<OrderDetailVO> getList() {
+    return list;
+  }
+
+  public void setList(List<OrderDetailVO> list) {
+    this.list = list;
+  }
 }

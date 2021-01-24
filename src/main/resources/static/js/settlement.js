@@ -6,7 +6,7 @@ $(function(){
         var val = parseInt($(".qprice").eq(i).html().substring(1));
         totalCost += val;
     }
-    $("#totalprice").html("￥"+totalCost);
+    $("#totalprice").html("$"+totalCost);
     //settlement2使用
     $("#settlement2_totalCost").val(totalCost);
 });
@@ -129,10 +129,6 @@ function removeCart(obj){
         window.location.href = "/cart/deleteById/"+id;
     }
 }
-
-
-
-
 function settlement2() {
     var totalCost = $("#totalprice").text();
     if(totalCost == "$0"){

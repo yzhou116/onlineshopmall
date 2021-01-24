@@ -589,7 +589,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
     width: 220px;
     min-height: 70px;
     overflow: hidden;
-    background: url(../images/nav_bg.png) repeat center top;
+ /*   background: url(../images/nav_bg.png) repeat center top;*/
     position: absolute;
     left: 196px;
     top: 0px;
@@ -666,7 +666,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
     line-height: 40px;
     background-color: #FFF;
     color: #ff4e00;
-    z-index: 800px;
+   /* z-index: 800px;*/
 }
 
 .leftNav .zj {
@@ -841,7 +841,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
     left: 0;
     z-index: 1;
     opacity: .8;
-    *filter: alpha(opacity=80)
+/*    *filter: alpha(opacity=80)*/
 }
 
 .banner .slide_info_card .slide_info_card_text {
@@ -1184,8 +1184,8 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
 	-moz-transition-timing-function:ease-out; -webkit-transition-timing-function: ease-out; -o-transition-timing-function:ease-out; -ms-transition-timing-function:ease-out; transition-timing-function:ease-out;*/
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
-    -o-transform: all .5s;
-    -ms-transform: all .5s;
+  /*  -o-transform: all .5s;
+    -ms-transform: all .5s;*/
     transition: all .5s;
 }
 
@@ -1289,7 +1289,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
     width: 243px;
     height: 228px;
     overflow: hidden;
-    background: url(../images/line.gif) no-repeat right 122px;
+/*    background: url(../images/line.gif) no-repeat right 122px;*/
     float: left;
     border-right: 1px solid #eaeaea;
     position: relative;
@@ -1338,8 +1338,8 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
 .hot_pro #block .box .imgbg img {
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
-    -o-transform: all .5s;
-    -ms-transform: all .5s;
+ /*   -o-transform: all .5s;
+    -ms-transform: all .5s;*/
     transition: all .5s;
 }
 
@@ -1521,8 +1521,8 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
 .sell_right img {
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
-    -o-transform: all .5s;
-    -ms-transform: all .5s;
+   /* -o-transform: all .5s;
+    -ms-transform: all .5s;*/
     transition: all .5s;
 }
 
@@ -1861,8 +1861,8 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
 .fresh_mid ul li .img img {
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
-    -o-transform: all .5s;
-    -ms-transform: all .5s;
+/*    -o-transform: all .5s;
+    -ms-transform: all .5s;*/
     transition: all .5s;
 }
 
@@ -2382,7 +2382,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
     width: 238px;
     height: 228px;
     overflow: hidden;
-    background: url(../images/line.gif) no-repeat right 122px;
+/*    background: url(../images/line.gif) no-repeat right 122px;*/
     float: left;
     border-left: 1px solid #eaeaea;
     border-right: 1px solid #eaeaea;
@@ -2432,8 +2432,8 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
 .like #block1 .box .imgbg img {
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
-    -o-transform: all .5s;
-    -ms-transform: all .5s;
+   /* -o-transform: all .5s;
+    -ms-transform: all .5s;*/
     transition: all .5s;
 }
 
@@ -2813,7 +2813,7 @@ ul.cate li {
     left: 0;
     z-index: 1;
     opacity: .8;
-    *filter: alpha(opacity=80)
+/*    *filter: alpha(opacity=80)*/
 }
 
 .nban .slide_info_card .slide_info_card_text {
@@ -3027,8 +3027,8 @@ ul.cate li {
 .milk_right ul li .img img {
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
-    -o-transform: all .5s;
-    -ms-transform: all .5s;
+   /* -o-transform: all .5s;
+    -ms-transform: all .5s;*/
     transition: all .5s;
 }
 
@@ -4216,7 +4216,7 @@ table.jud_list tr td {
     left: 0;
     z-index: 1;
     opacity: .8;
-    *filter: alpha(opacity=80)
+/*    *filter: alpha(opacity=80)*/
 }
 
 .n_ban .slide_info_card .slide_info_card_text {

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -63,7 +64,7 @@ public class UserController {
 
        User user = userService.CheckUserLogin(loginName,password);
 
-       if (user!=null) {
+       if (user.getId()!=null) {
            httpSession.setAttribute("user",user);
            return "redirect:/productCategory/list";
        }else{

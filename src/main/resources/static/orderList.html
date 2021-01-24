@@ -7,8 +7,7 @@
     <th:block th:include="common.html :: source"></th:block>
 </head>
 <body>
-
-<th:block th:include="common.html :: header"></th:block>
+<!--<th:block th:include="common.html :: header"></th:block>-->
 
 <div class="i_bg bg_color">
     <div class="m_content">
@@ -59,8 +58,8 @@
                                     <td width="25%">Price</td>
                                     <td width="25%">Total</td>
                                 </tr>
-
-                                <tr th:each="orderDetail:${order.orderDetailVOList}">
+                                <!--orderDetailVOList-->
+                                <tr th:each="orderDetail:${order.getList()}">
                                     <td th:text="${orderDetail.name}"></td>
                                     <td>
                                         <img th:src="'/images/'+${orderDetail.fileName}" width="50"
@@ -83,8 +82,8 @@
     </div>
 </div>
 
-<th:block th:include="common.html :: footer"></th:block>
-<th:block th:include="common.html :: permit"></th:block>
+<!--<th:block th:include="common.html :: footer"></th:block>
+<th:block th:include="common.html :: permit"></th:block>-->
 
 </body>
 </html>

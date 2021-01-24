@@ -5,13 +5,14 @@ import com.yizhou.mymall.entity.User;
 import com.yizhou.mymall.entity.UserAddress;
 import com.yizhou.mymall.service.UserAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ import java.util.List;
  * @author yizhou
  * @since 2021-01-02
  */
-@Controller
+@RestController
 @RequestMapping("/userAddress")
 public class UserAddressController {
 
@@ -40,6 +41,18 @@ public class UserAddressController {
         modelAndView.addObject("addressList",list);
 
         return modelAndView;
+    }
+    @GetMapping("/deleteById/{id}")
+    public void deleteById(@PathVariable("id") Integer id, HttpServletResponse response){
+
+        userAddressService.deleteUserAddressById(id);
+        try {
+            response.sendRedirect("/userAddress/list");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }

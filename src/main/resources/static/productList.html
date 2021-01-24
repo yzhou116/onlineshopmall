@@ -24,7 +24,7 @@
                             <a th:href="'/product/findById/'+${product.getId()}" th:text="${product.getName()}"></a>
                         </div>
                         <div class="price">
-                            <font>￥<span th:text="${product.price}"></span></font> &nbsp;
+                            <font>$<span th:text="${product.price}"></span></font> &nbsp;
                         </div>
                         <div class="img">
                             <a th:href="'/product/findById/'+${product.getId()}">
@@ -32,10 +32,10 @@
                                      height="155" />
                             </a>
                         </div>
-                        <div class="carbg">
+                     <!--   <div class="carbg">
                             <a href="javascript:void(0);" class="ss" >Save</a>
                             <a href="javascript:void(0);" class="j_car" >Add Cart</a>
-                        </div>
+                        </div>-->
                     </li>
                 </ul>
             </div>

@@ -1,8 +1,10 @@
 package com.yizhou.mymall.service;
 
 import com.yizhou.mymall.entity.Order;
-import com.yizhou.mymall.entity.OrderDetail;
+import com.yizhou.mymall.entity.OrderDetailVO;
 import com.yizhou.mymall.entity.User;
+
+import java.util.List;
 
 
 /**
@@ -16,5 +18,7 @@ import com.yizhou.mymall.entity.User;
 public interface OrderDetailService {
     boolean SaveUserOrder(User user, Integer id);
     boolean DeleteUserCart(User user);
+    List<Order> listUserOrders(Integer id);
+   List <OrderDetailVO> getOrderDetailVoByOrderiD(Integer id);
 
 }
